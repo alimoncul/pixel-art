@@ -27,11 +27,11 @@ body > #root > div {
 }
 .div3 {
 	grid-area: 2 / 2 / 3 / 6;
-	background-color: darkgoldenrod;
 }
 .div4 {
 	grid-area: 3 / 2 / 6 / 6;
-	background-color: firebrick;
+	display: flex;
+	flex-direction: column;
 }
 
 .select {
@@ -75,4 +75,30 @@ body > #root > div {
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
+}
+
+.colorHistorySwatch {
+	padding: 5px;
+	background: rgb(22, 31, 39);
+	border-radius: 1px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	box-sizing: border-box;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.colorHistory {
+	height: 100%;
+	width: 100%;
+}
+
+.gridElement {
+	flex-grow: 1;
+	border-style: solid;
+	border-width: 0.1px;
+	border-color: darkkhaki;
 }

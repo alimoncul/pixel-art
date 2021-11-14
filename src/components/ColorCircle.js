@@ -7,9 +7,14 @@ export class ColorCircle extends React.Component {
 
 	render() {
 		return (
-			<div
-				style={{ background: this.props.color, height: 20, width: 20 }}
-			></div>
+			<div className="colorHistorySwatch">
+				<div
+					className="colorHistory"
+					style={{
+						background: this.props.color,
+					}}
+				></div>
+			</div>
 		);
 	}
 }

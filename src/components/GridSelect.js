@@ -1,32 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../Store';
+import { GRID_SIZE_ENUMS } from '../constants';
 
-export class GridSelect extends React.Component {
-	state = {
-		gridSize: 0,
+export const GridSelect = () => {
+	const [state, setState] = useContext(Context);
+	const handleOnChange = (event) => {
+		const gridSize = parseInt(event.target.value) || 0;
+		setState({
+			gridSize: gridSize,
+			colors: state.colors,
+		});
 	};
-
-	handleOnChange = (event) => {
-		this.setState({ gridSize: parseInt(event.target.value) || 0 });
-	};
-
-	render() {
-		return (
-			<select
-				id="gridSelect"
-				className="select margin"
-				onChange={this.handleOnChange}
-				value={
-					this.state.gridSize
-						? this.state.gridSize
-						: 'Select Grid Size'
-				}
-			>
-				<option disabled>Select Grid Size</option>
-				<option value={8}>8x8</option>
-				<option value={16}>16x16</option>
-				<option value={32}>32x32</option>
-				<option value={64}>64x64</option>
-			</select>
-		);
-	}
-}
+	return (
+		<select
+			id="gridSelect"
+			className="select margin"
+			onChange={handleOnChange}
+			value={state.gridSize || 'Select Grid Size'}
+		>
+			<option disabled>Select Grid Size</option>
+			<option value={GRID_SIZE_ENUMS.EIGHT}>8x8</option>
+			<option value={GRID_SIZE_ENUMS.SIXTEEN}>16x16</option>
+			<option value={GRID_SIZE_ENUMS.THIRTYTWO}>32x32</option>
+			<option value={GRID_SIZE_ENUMS.SIXTYFOUR}>64x64</option>
+		</select>
+	);
+};
